@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  type: one
+  grape_type: one
+  country: one
+  price: 1.5
+  amount: 1
+  url_img: MyString
+  admin: one
+
+two:
+  description: MyString
+  type: two
+  grape_type: two
+  country: two
+  price: 1.5
+  amount: 1
+  url_img: MyString
+  admin: two
