@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application' %>
+    <%= stylesheet_link_tag 'application' %>
     
   </head>
 
@@ -14,10 +14,10 @@
     <div class='container'>
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand">Wine Shop</a>
+          <h4>Wine Shop</h4>
           <div class="btn-group">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-              admin@admin.com
+              <%= current_admin.email%>
             </button>
             <ul class="dropdown-menu dropdown-menu-lg-end">
               <li><a class="dropdown-item" href="#">Logout</a></li>
@@ -28,7 +28,7 @@
 
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <%= link_to "Main", admins_backoffice_welcome_index_path, class:'nav-link active' %>
+          <%= link_to "Main", admins_backoffice_welcome_index_path, class:'nav-link' %>
         </li>
         <li class="nav-item">
           <%= link_to "Admins", admins_backoffice_admins_index_path, class:'nav-link' %>
