@@ -5,5 +5,5 @@ class Wine < ApplicationRecord
   belongs_to :admin
 
   # kaminari paginator
-  paginates_per 5
+  paginates_per 3
 end

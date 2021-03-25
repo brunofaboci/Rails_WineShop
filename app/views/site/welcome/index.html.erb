@@ -1,3 +1,52 @@
-<%= link_to 'Users', users_backoffice_welcome_index_path %>
-<br />
 <%= link_to 'Admins', admins_backoffice_welcome_index_path %>
+
+<div class='container'>
+  <div class="row justify-content-right">
+    <div class="col-12">
+      <div class='row'>
+        
+        <div class='col-8'>
+          <% @wines.each do |wine| %>
+            <div class="card mb-3" style="max-width: 640px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <%= image_tag wine.url_img, width:180, height:180 %>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h4 class="card-title"><%= wine.description %></h4>
+                    <h6 class="card-title"><%= wine.type.description %>, <%= wine.grape_type.description %> </h6>
+                    <h6 class="card-title"><%= wine.country.description %></h6>
+                    <div class='row'>
+                      <div class='col-6'>
+                        <h4 class="card-title">$<%= wine.price %></h4>
+                      </div>
+                      <div class="col-3 offset-md-3">
+                        <button type='submit' class='btn btn-outline-primary btn-sm'>
+                          Add
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        
+        <div class='col-4'>
+          <%= image_tag('wine', size:"400x580") %>
+        </div>
+      </div>
+      
+      <div class='container'>
+        <div class='row justify-content-center'>
+          <div class="col-6">
+            <%= paginate @wines %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
