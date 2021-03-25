@@ -6,7 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application' %>
-    <%= javascript_include_tag 'application' %>
+    
   </head>
 
   <body>
@@ -34,24 +34,36 @@
           <%= link_to "Admins", admins_backoffice_admins_index_path, class:'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Wines", '#', class:'nav-link' %>
+          <%= link_to "Wines", admins_backoffice_wines_path, class:'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Types", '#', class:'nav-link' %>
+          <%= link_to "Types", admins_backoffice_types_path, class:'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Grape Types", '#', class:'nav-link' %>
+          <%= link_to "Grape Types", admins_backoffice_grape_types_path, class:'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Countries", '#', class:'nav-link' %>
+          <%= link_to "Countries", admins_backoffice_countries_path, class:'nav-link' %>
         </li>
       </ul>
       <br/>
 
       <%= yield %>
       
-
     </div>
+
+    <%= javascript_include_tag 'application' %>
+
+    <% if notice %>
+			<%= javascript_tag do %>
+				$.bootstrapGrowl('<%= notice %>', {
+					type: 'success',
+					align: 'rigth',
+					alow_dismiss: 'true',
+					stackup_space: 10
+				});
+			<%end%>
+		<% end %>
     
   </body>
 </html>

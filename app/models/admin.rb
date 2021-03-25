@@ -7,5 +7,4 @@ class Admin < ApplicationRecord
   # kaminari paginator
   paginates_per 5
 
-  has_many :wines
 end

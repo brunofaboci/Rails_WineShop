@@ -1,0 +1,2 @@
+module AdminsBackoffice::WinesHelper
+end

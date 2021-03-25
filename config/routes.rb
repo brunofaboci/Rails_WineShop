@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   namespace :admins_backoffice do
     get 'admins/index'
+    get 'welcome/index'
     resources :admins # criar as rotas p/ admins
+    resources :types
+    resources :grape_types
+    resources :countries
+    resources :wines
   end
   namespace :users_backoffice do
-    get 'welcome/index'
-  end
-
-  namespace :admins_backoffice do
     get 'welcome/index'
   end
 

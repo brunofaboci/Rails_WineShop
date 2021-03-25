@@ -1,0 +1,28 @@
+<div class='container'>
+  <div class='row justify-content-right'>
+    <div class="col-6">
+      <h4 class='page-header'><%= action_message %></h4>
+    </div>
+  </div>
+</div>
+
+
+<div class='container'>
+  <div class="row justify-content-right">
+    <div class="col-6"> 
+      <%= form_with(model: [:admins_backoffice, @type ], local: true) do |form| %>
+        <div class='mb-3'>
+          <%= form.label :description, class:"form-label" %> 
+          <%= form.text_field :description, class:'form-control form-control-sm' %>
+        </div>
+        <button type='submit' class='btn btn-primary btn-sm'>
+          Submit
+        </button>
+        <%= link_to admins_backoffice_types_path, class: 'btn btn-danger btn-sm' do %>
+          Cancel
+        <%end%>
+
+      <% end %>
+    </div>
+  </div>
+</div>
