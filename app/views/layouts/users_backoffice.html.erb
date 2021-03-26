@@ -5,12 +5,63 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'users_backoffice' %>
+    
   </head>
 
   <body>
-    <h2>Layout Users</h2>
-    <%= yield %>
+
+    <div class='container'>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <%= link_to site_welcome_index_path, class:"navbar-brand" do %>
+            <h4>Wine Shop</h4>
+          <% end %> 
+          <div class="btn-group">           
+            <h6><%= current_user.email%></h6>
+          </div>
+        </div>
+      </nav>
+
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <%= link_to "Main", admins_backoffice_welcome_index_path, class:'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "User Information", admins_backoffice_admins_index_path, class:'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Bag", admins_backoffice_wines_path, class:'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Wines", site_welcome_index_path, class:'nav-link' %>
+        </li>
+        <li class="nav-item align-end">
+          <%= link_to destroy_user_session_path, class:'nav-link', method: :delete do %>
+            Logout
+          <% end %>
+        </li>
+      </ul>
+      <br/>
+
+      <%= yield %>
+      
+    </div>
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'users_backoffice' %>
+
+    <% if notice %>
+			<%= javascript_tag do %>
+				$.bootstrapGrowl('<%= notice %>', {
+					type: 'success',
+					align: 'rigth',
+					alow_dismiss: 'true',
+					stackup_space: 10
+				});
+			<%end%>
+		<% end %>
+    
   </body>
 </html>

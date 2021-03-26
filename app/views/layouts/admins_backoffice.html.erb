@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'admins_backoffice' %>
     
   </head>
 
@@ -15,13 +16,8 @@
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <h4>Wine Shop</h4>
-          <div class="btn-group">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-              <%= current_admin.email%>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-lg-end">
-              <li><a class="dropdown-item" href="#">Logout</a></li>
-            </ul>
+          <div class="btn-group">           
+            <h6><%= current_admin.email%></h6>
           </div>
         </div>
       </nav>
@@ -45,14 +41,22 @@
         <li class="nav-item">
           <%= link_to "Countries", admins_backoffice_countries_path, class:'nav-link' %>
         </li>
+        <li class="nav-item align-end">
+          <%= link_to destroy_admin_session_path, class:'nav-link', method: :delete do %>
+            Logout
+          <% end %>
+        </li>
       </ul>
       <br/>
+
+      
 
       <%= yield %>
       
     </div>
 
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'admins_backoffice' %>
 
     <% if notice %>
 			<%= javascript_tag do %>

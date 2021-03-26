@@ -12,6 +12,5 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require bootstrap/dist/js/bootstrap
-//= require popper.js/dist/popper
+
 

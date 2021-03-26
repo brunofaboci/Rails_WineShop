@@ -13,7 +13,7 @@
       <%= form_with(model: [:admins_backoffice, @admin ], local: true) do |form| %>
         <div class='mb-3'>
           <%= form.label :email, class:"form-label" %> 
-          <%= form.text_field :email, class:'form-control form-control-sm', placeholder:'example@example.com' %>
+          <%= form.text_field :email, class:'form-control form-control-sm', autofocus: true, placeholder:'example@example.com' %>
         </div>
         <div class='mb-3'>
           <%= form.label :password %>
