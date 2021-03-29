@@ -2,7 +2,7 @@ class AdminsBackoffice::WinesController < AdminsBackofficeController
   before_action :set_wine, only: [:edit, :update, :destory]
 
   def index
-    @wines = Wine.all.page(params[:page])
+    @wines = Wine.all.page(params[:page]).per(5)
   end
 
   def edit

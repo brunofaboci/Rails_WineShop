@@ -4,6 +4,4 @@ class Wine < ApplicationRecord
   belongs_to :country
   belongs_to :admin
 
-  # kaminari paginator
-  paginates_per 3
 end

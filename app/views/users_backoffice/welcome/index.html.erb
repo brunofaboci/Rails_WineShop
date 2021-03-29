@@ -1,1 +1,5 @@
-<h4>Hello, <%= current_user.email %> </h4>
+<% unless current_user.first_name? %>
+  <h4>Hello, <%= current_user.email %> </h4>
+<% else %>
+  <h4>Hello, <%= current_user.first_name %> </h4>
+<% end %>

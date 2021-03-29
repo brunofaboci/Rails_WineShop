@@ -1,0 +1,100 @@
+<!-- Errors Messages -->
+<% if @user.errors.any? %>
+  <div class='alert alert-danger alert-dismissable'>
+    <button type='button' class='close' data-desmiss='alert' aria-hidden='true'>x</button>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li> <%= message %> </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class='container'>
+  <div class='row justify-content-right'>
+    <div class="col-6">
+      <h4 class='page-header'>User Information</h4>
+    </div>
+  </div>
+</div>
+
+<div class='container'>
+  <div class="row justify-content-right">
+    <div class="col-12"> 
+      <div class='row'>
+        <div class='col-6'>
+
+          <%= form_with(url: users_backoffice_profile_path, model: @user, local: true) do |form| %>
+          
+            <div class='mb-3'>
+              <%= form.label :first_name, class:"form-label" %> 
+              <%= form.text_field :first_name, autofocus: true, class:'form-control form-control-sm' %>
+            </div>
+
+            <div class='mb-3'>
+              <%= form.label :last_name, class:"form-label" %> 
+              <%= form.text_field :last_name, class:'form-control form-control-sm' %>
+            </div>
+
+            <div class='mb-3'>
+              <%= form.label :email, class:"form-label" %> 
+              <%= form.text_field :email, class:'form-control form-control-sm', readonly: true %>
+            </div>
+        
+            <!-- Campos referentes ao model UserProfile -->
+            <%= form.fields_for :user_profile do |profile_form| %>
+
+            <!-- Radio Buttons -->
+              <div class='mb-3'>
+                <%= profile_form.label :gender, class:"form-label" %>
+                <br />
+                <div class="form-check form-check-inline">                 
+                  <label class="btn" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
+                    <%= profile_form.radio_button :gender, "M", class:"form-check-input" %> &nbsp; Male &nbsp;
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="btn" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
+                    <%= profile_form.radio_button :gender, "F", class:"form-check-input" %> &nbsp; Female &nbsp;
+                  </label>
+                </div>
+              </div>
+
+        </div>
+        <div class='col-6'>
+
+              <div class='mb-3'>
+                <%= profile_form.label :address, class:"form-label" %> 
+                <%= profile_form.text_field :address, class:'form-control form-control-sm' %>
+              </div>
+
+              <div class='mb-3'>
+                <%= profile_form.label :birthdate, class:"form-label" %> 
+                <%= profile_form.date_field :birthdate, class:'form-control form-control-sm' %>
+              </div>
+            
+            <% end %>
+
+            <div class='mb-3'>
+              <%= form.label :password, class:"form-label" %>
+              <%= form.password_field :password, class:'form-control form-control-sm'%>
+            </div>
+
+            <div class='mb-3'>
+              <%= form.label :password_confirmation, class:"form-label" %>
+              <%= form.password_field :password_confirmation, class:'form-control form-control-sm'%>
+            </div>
+
+            <button type='submit' class='btn btn-primary btn-sm'>
+              Submit
+            </button>
+            <%= link_to users_backoffice_welcome_index_path, class: 'btn btn-danger btn-sm' do %>
+              Cancel
+            <% end %>
+
+          <% end %>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
